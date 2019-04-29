@@ -29,9 +29,17 @@
                 </div>
               </div>
             </div>
+            <el-pagination
+              background
+              layout="prev, pager, next"
+              :total="100" >
+            </el-pagination>
           </div>
         </div>
-        <div class="body_container_right"></div>
+        <div class="body_container_right">
+          <el-button type="primary" icon="el-icon-search">搜索</el-button>
+
+        </div>
       </div>
     </div>
     <!-- /container -->
@@ -88,6 +96,7 @@ export default {
   clear: both;
 } */
 #body_box .body_container_left {
+  position: relative;
   float: left;
   overflow: hidden;
   margin: 5px 5px 5px 0;
@@ -231,5 +240,11 @@ export default {
 }
 #body_box .news_item .news_href a:hover {
   color: orange;
+}
+.el-pagination{
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 </style>
