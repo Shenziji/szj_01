@@ -21,18 +21,24 @@
                 </div>
                 <nav class="header_nav clearfix">
                     <ul class="nav_list">
-                        <li><a href="#" class="active">首页</a></li>
+                        <li>
+                            <!-- <a href="#" class="active">首页</a> -->
+                            <router-link :to='{name: "index"}'>首页</router-link>
+                        </li>
                         <li><a href="#" class="">文章</a></li>
                         <li><a href="G:/sss/1JS/999个人博客/201938/999个人博客/search.html" class="">视频搜索</a></li>
                         <li>
-                            <a href="G:/sss/1JS/999个人博客/201938/999个人博客/canvas.html" class="">canvas</a>
+                            <!-- <a href="G:/sss/1JS/999个人博客/201938/999个人博客/canvas.html" class="">canvas</a> -->
+                            <router-link :to='{name: "canvas"}'>canvas</router-link>
                             <ul>
                                 <li>第一</li>
                                 <li>第二</li>
                                 <li>第三</li>
                             </ul>
                         </li>
-                        <li><a href="#" class="">留言</a></li>
+                        <li>
+                            <router-link :to="{name:'douban'}">豆瓣电影</router-link>
+                        </li>
                     </ul>
                 </nav>
                 <div class="register">

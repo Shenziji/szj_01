@@ -1,10 +1,9 @@
 <template>
   <div id="app">
-    <hd-nav/>
-    <banner/>
-    <newList/>
-    <router-view/>
-    <ft-nav/>
+    <hd-nav></hd-nav>
+    <banner></banner>
+    <router-view></router-view>
+    <ft-nav></ft-nav>
   </div>
 </template>
 

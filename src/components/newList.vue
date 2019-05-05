@@ -46,6 +46,7 @@
   </div>
 </template>
 <script>
+import canvas from './canvas/01'
 export default {
   data() {
     return {
