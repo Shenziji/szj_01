@@ -11,35 +11,35 @@
 
 <script>
 export default {
-  props:['maxPage']
-}
+  props: ["maxPage"]
+};
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .filmspage ul{
-    margin:20px;
-    text-align:center;
-  }
-  .filmspage ul li {
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    margin:5px;
-    line-height: 30px;
-    background: #333;
-    border: 1px solid #666;
-    text-align: center;
-    color:#fff;
-    cursor: pointer;
-  }
+.filmspage ul {
+  margin: 20px;
+  text-align: center;
+}
+.filmspage ul li {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin: 5px;
+  line-height: 30px;
+  background: #333;
+  border: 1px solid #666;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+}
 
-  a{
-    display: block;
-    height:100%;
-    color: #fff;
-  }
+a {
+  display: block;
+  height: 100%;
+  color: #fff;
+}
 
-  a.router-link-exact-active{
-    background: #2ad487;
-  }
+a.router-link-exact-active {
+  background: #2ad487;
+}
 </style>
