@@ -32,13 +32,27 @@
             <el-pagination
               background
               layout="prev, pager, next"
-              :total="100" >
-            </el-pagination>
+              :total="100"
+              @current-change="handleCurrentChange"
+            ></el-pagination>
           </div>
         </div>
         <div class="body_container_right">
-          <el-button type="primary" icon="el-icon-search">搜索</el-button>
-
+          <div class="left_calendar">
+            <el-calendar v-model="timeValue"></el-calendar>
+          </div>
+          <div class="left_timeline">
+            <span class="left_tag">
+              <span>时间线:</span>
+            </span>
+            <el-timeline :reverse="reverse">
+              <el-timeline-item
+                v-for="(activity, index) in activities"
+                :key="index"
+                :timestamp="activity.timestamp"
+              >{{activity.content}}</el-timeline-item>
+            </el-timeline>
+          </div>
         </div>
       </div>
     </div>
@@ -46,10 +60,34 @@
   </div>
 </template>
 <script>
-import canvas from './canvas/01'
+import canvas from "./canvas/01";
 export default {
   data() {
     return {
+      reverse: true,
+      activities: [
+        {
+          content: "网站开始建设",
+          timestamp: "2019-04-15"
+        },
+        {
+          content: "构思网站结构",
+          timestamp: "2019-04-16"
+        },
+        {
+          content: "用vue重构",
+          timestamp: "2019-04-25"
+        },
+        {
+          content: "用vue重构",
+          timestamp: "2019-04-25"
+        },
+        {
+          content: "用vue重构",
+          timestamp: "2019-04-25"
+        }
+      ],
+      timeValue: new Date(),
       newData: [
         {
           img: "../../static/img/news/1.png",
@@ -71,10 +109,80 @@ export default {
         }
       ]
     };
+  },
+  methods: {
+    handleCurrentChange(currentPage) {
+      console.log(currentPage);
+    }
+  },
+   watch: {
+    $route: {
+      handler: function(val, oldVal) {
+        console.log(val, oldVal);
+        alert(111)
+      },
+      // 深度观察监听
+      deep: true
+    }
   }
 };
 </script>
 <style>
+
+/* 时间线组件样式 */
+.left_timeline{
+  overflow: hidden;
+  float: left;
+  width: 95%;
+  padding: 10px 10px;
+  margin: 20px 0;
+  /* box-shadow: 0 2px 5px rgba(0,0,0,.15) */
+  box-shadow: 0 2px 5px rgba(175, 157, 138, .7)
+}
+.el-timeline{
+  margin: 20px 0!important;
+}
+.left_tag{
+  position: relative;
+  margin: 10px 0 ;
+  font-size: 1.2rem;
+  color: #666;
+  user-select: none;
+
+}
+.left_tag::before{
+  content: '';
+  position: absolute;
+  width: 5px;
+  height: 100%;
+  margin-left: -10px;
+  border-radius: 0 5px 5px 0;
+  /* background-color: #83e1f7; */
+  background-color: rgba(175, 157, 138, .7);
+}
+.left_tag span{
+  position: relative;
+  user-select: none;
+  color: #666;
+  font-size: 1.2rem;
+}
+
+/* 日历样式 */
+.left_calendar{
+  overflow: hidden;
+  margin: 20px 0;
+  padding: 5px;
+  /* background-color: #666; */
+  border-radius: 5px;
+  /* box-shadow: 1px 2px 5px #aaa; */
+  box-shadow: 1px 2px 5px rgba(175, 157, 138, .7);
+}
+.el-calendar-table .el-calendar-day {
+  text-align: center;
+  height: 35px !important;
+}
+/* 日历样式end */
+
 .clearfix::after {
   visibility: hidden;
   clear: both;
@@ -87,7 +195,7 @@ export default {
 }
 #body_box .body_container {
   width: 1190px;
-  background-color: #eaeaea;
+  /* background-color: #eaeaea; */
   margin: 0 auto;
 }
 
@@ -109,9 +217,10 @@ export default {
   float: right;
   overflow: hidden;
   margin: 5px 0 5px 10px;
+  padding: 0 5px;
   width: 370px;
   height: 880px;
-  background-color: rgb(149, 65, 65);
+  /* background-color: rgb(149, 65, 65); */
 }
 #body_box .news_box {
   /* width: 790px; */
@@ -238,11 +347,12 @@ export default {
   right: 0;
   bottom: 0;
   transition: color 0.2s;
+  color: #666;
 }
 #body_box .news_item .news_href a:hover {
   color: orange;
 }
-.el-pagination{
+.el-pagination {
   position: absolute;
   bottom: 20px;
   left: 50%;

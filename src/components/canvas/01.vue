@@ -61,7 +61,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 #canvas .news_detail {
   margin: 0;
   background: url("../../../static/img/1.gif");

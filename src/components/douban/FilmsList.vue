@@ -50,6 +50,8 @@ export default {
           "/api/v2/movie/top250?count=20&&start=" + this.$route.query.page * 20
         );
         // console.log(subjects)
+        console.log(11111);
+        
         this.subjects = subjects;
       }
     }

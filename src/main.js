@@ -9,6 +9,9 @@ import ft from './components/footerNav'
 import newList from './components/newList' 
 import index from './components/index'
 import 'swiper/dist/css/swiper.css'  //引入样式
+import './assets/css/global.css'
+import bg from '@/components/bg' // 背景图
+import click from '@/components/click'
 import axios from 'axios'
 
 Vue.config.productionTip = false
@@ -18,6 +21,8 @@ Vue.component('banner', banner)
 Vue.component('ftNav', ft)
 Vue.component('newList', newList)
 Vue.component('index', index)
+Vue.component('bg', bg)
+Vue.component('click', click)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

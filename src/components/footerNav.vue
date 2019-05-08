@@ -16,6 +16,10 @@
 export default {};
 </script>
 <style>
+#ft{
+  position: absolute;
+  bottom: 1.2rem;
+}
 #footer {
   width: 100%;
   /* height: 500px; */
